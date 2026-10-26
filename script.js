@@ -10,6 +10,25 @@ function Book(name, author, pages) {
 
 function addBookToLibrary() {
   //takes params from a form
-  //creates book with params
-  //push book into array
+  let name = null;
+  let author = null;
+  let pages = null;
+
+  const form = document.querySelector("#my-form");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const nameInput = document.querySelector("#title-input");
+    const authorInput = document.querySelector("#author-input");
+    const pagesInput = document.querySelector("#pages-input");
+    name = nameInput.value;
+    author = authorInput.value;
+    pages = pagesInput.value;
+
+    const book = new Book(name, author, pages);
+    //push book into array
+    myLibrary.push(book);
+  });
 }
+
+addBookToLibrary();
