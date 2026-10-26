@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-family: "Anton", sans-serif;
+  font-size: 4rem;
+}
+
+.book-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.book-cards .book-card {
+  display: grid;
+  grid-template-rows: 1fr 5fr 1fr;
+  background-color: rgb(20, 30, 40);
+  height: auto;
+  border-radius: 10%;
+  overflow: hidden;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.book-card {
+  text-align: center;
+  place-self: center;
+}
