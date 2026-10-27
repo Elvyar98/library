@@ -66,7 +66,6 @@ function addBookToLibrary() {
       return 0;
     }
 
-    form.reset();
     dialog.close();
     const book = new Book(name, author, pages);
 
@@ -77,5 +76,11 @@ function addBookToLibrary() {
     displayBooks();
   });
 }
+
+const dialog = document.querySelector("dialog");
+dialog.addEventListener("close", () => {
+  const form = document.querySelector("#my-form");
+  form.reset();
+});
 
 addBookToLibrary();
