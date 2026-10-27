@@ -1,6 +1,8 @@
 const myLibrary = [];
 
 function Book(name, author, pages) {
+  if (!new.target) throw Error("Must use new for constructor");
+
   this.id = crypto.randomUUID();
   this.name = name;
   this.author = author;
@@ -25,10 +27,13 @@ function addBookToLibrary() {
     author = authorInput.value;
     pages = pagesInput.value;
 
+    if (name == null || author == null || pages == null)
+      return "Please add the required information";
     const book = new Book(name, author, pages);
     //push book into array
     myLibrary.push(book);
   });
 }
 
+function displayBooks() {}
 addBookToLibrary();
