@@ -23,6 +23,8 @@ function displayBooks() {
 
     let div = document.createElement("div");
     div.classList.add("book-card");
+    div.id = myLibrary[i].id;
+    console.log(div.id);
 
     let titleText = document.createElement("h3");
     titleText.textContent = `Title: ${name}`;
@@ -36,12 +38,28 @@ function displayBooks() {
     let statusText = document.createElement("h3");
     statusText.textContent = `Status: ${status}`;
 
+    let removebtn = document.createElement("button");
+    removebtn.textContent = "Remove book";
+
+    removebtn.addEventListener("click", () => {
+      const index = myLibrary.findIndex(function (element) {
+        if (element.id == div.id) {
+          return true;
+        } else return false;
+      });
+
+      myLibrary.splice(index, 1);
+
+      displayBooks();
+    });
+
     bookSection.appendChild(div);
 
     div.appendChild(titleText);
     div.appendChild(authorText);
     div.appendChild(pageText);
     div.appendChild(statusText);
+    div.appendChild(removebtn);
   }
 }
 
