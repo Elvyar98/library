@@ -1,5 +1,4 @@
 const myLibrary = [];
-let booksInLibrary = 0;
 
 function Book(name, author, pages) {
   if (!new.target) throw Error("Must use new for constructor");
@@ -14,8 +13,9 @@ function Book(name, author, pages) {
 function displayBooks() {
   const books = myLibrary.length;
   const bookSection = document.querySelector("#book-cards");
+  bookSection.textContent = "";
 
-  for (let i = booksInLibrary; i < books; i++) {
+  for (let i = 0; i < books; i++) {
     const name = myLibrary[i].name;
     const author = myLibrary[i].author;
     const pages = myLibrary[i].pages;
@@ -47,8 +47,9 @@ function displayBooks() {
 
 function addBookToLibrary() {
   //takes params from a form
-
+  console.log("setup ran");
   const form = document.querySelector("#my-form");
+  const dialog = document.querySelector("dialog");
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -56,13 +57,17 @@ function addBookToLibrary() {
     const authorInput = document.querySelector("#author-input");
     const pagesInput = document.querySelector("#pages-input");
 
-    const name = nameInput.value;
-    const author = authorInput.value;
-    const pages = pagesInput.value;
+    const name = nameInput.value.trim();
+    const author = authorInput.value.trim();
+    const pages = pagesInput.value.trim();
 
-    if (name == "" || author == "" || pages == "")
+    if (name == "" || author == "" || pages == "") {
       alert("Please add the required information");
+      return 0;
+    }
 
+    form.reset();
+    dialog.close();
     const book = new Book(name, author, pages);
 
     //push book into array
@@ -70,7 +75,6 @@ function addBookToLibrary() {
     myLibrary.push(book);
 
     displayBooks();
-    booksInLibrary++;
   });
 }
 

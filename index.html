@@ -2,26 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, intial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="" href="style.css" />
     <script src="script.js" defer></script>
     <title>Book Library</title>
   </head>
   <body>
-    <div class="side-bar">
-      <form id="my-form">
+    <dialog id="add-book">
+      <form id="my-form" method="dialog">
         <input type="text" id="title-input" required />
         <input type="text" id="author-input" required />
         <input type="text" id="pages-input" required />
         <button type="submit">Submit book</button>
       </form>
-    </div>
+    </dialog>
+
     <header>
       <h1 class="header-title">Books in the library</h1>
     </header>
     <main class="library">
       <section id="book-cards"></section>
-      <button>Add Book</button>
+      <button id="new-book" command="show-modal" commandfor="add-book">
+        Add Book
+      </button>
     </main>
   </body>
 </html>
