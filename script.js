@@ -8,6 +8,11 @@ function Book(name, author, pages) {
   this.author = author;
   this.pages = pages;
   this.status = "Want to read";
+
+  this.changeStatus = () => {
+    if (this.status == "Finished Reading") this.status = "Want to read";
+    else this.status = "Finished Reading";
+  };
 }
 
 function displayBooks() {
@@ -41,6 +46,16 @@ function displayBooks() {
     let removebtn = document.createElement("button");
     removebtn.textContent = "Remove book";
 
+    let statusbtn = document.createElement("button");
+    statusbtn.textContent = "Finished Reading";
+
+    statusbtn.addEventListener("click", () => {
+      myLibrary.forEach((element) => {
+        if (element.id == div.id) element.changeStatus();
+      });
+      displayBooks();
+    });
+
     removebtn.addEventListener("click", () => {
       const index = myLibrary.findIndex(function (element) {
         if (element.id == div.id) {
@@ -60,6 +75,7 @@ function displayBooks() {
     div.appendChild(pageText);
     div.appendChild(statusText);
     div.appendChild(removebtn);
+    div.appendChild(statusbtn);
   }
 }
 
