@@ -35,5 +35,37 @@ function addBookToLibrary() {
   });
 }
 
-function displayBooks() {}
+function displayBooks() {
+  const books = myLibrary.length;
+  const bookSection = document.querySelector("#book-cards");
+
+  for (let i = 0; i < books; i++) {
+    const name = myLibrary[i].name;
+    const author = myLibrary[i].author;
+    const pages = myLibrary[i].pages;
+    const status = myLibrary[i].status;
+
+    let div = document.createElement("div");
+    div.classList.add("book-card");
+
+    let titleText = document.createElement("h3");
+    titleText.textContent = `Title: ${name}`;
+
+    let authorText = document.createElement("h3");
+    authorText.textContent = `Author: ${author}`;
+
+    let pageText = document.createElement("h3");
+    pageText.textContent = `Pages: ${pages}`;
+
+    let statusText = document.createElement("h3");
+    statusText.textContent = `Status: ${status}`;
+
+    bookSection.appendChild(div);
+
+    div.appendChild(titleText);
+    div.appendChild(authorText);
+    div.appendChild(pageText);
+    div.appendChild(statusText);
+  }
+}
 addBookToLibrary();
