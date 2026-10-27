@@ -13,12 +13,10 @@ h1 {
   font-size: 4rem;
 }
 
-body {
-}
-
 .book-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-row: auto-fill;
   gap: 20px;
   padding: 20px;
 }
