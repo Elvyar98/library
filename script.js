@@ -81,7 +81,6 @@ function displayBooks() {
 
 function addBookToLibrary() {
   //takes params from a form
-  console.log("setup ran");
   const form = document.querySelector("#my-form");
   const dialog = document.querySelector("dialog");
 
