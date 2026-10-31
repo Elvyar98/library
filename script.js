@@ -1,18 +1,18 @@
 const myLibrary = [];
 
-function Book(name, author, pages) {
-  if (!new.target) throw Error("Must use new for constructor");
+class Book {
+  constructor(name, author, pages) {
+    this.id = crypto.randomUUID();
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.status = "Want to read";
+  }
 
-  this.id = crypto.randomUUID();
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.status = "Want to read";
-
-  this.changeStatus = () => {
+  changeStatus() {
     if (this.status == "Finished Reading") this.status = "Want to read";
     else this.status = "Finished Reading";
-  };
+  }
 }
 
 function displayBooks() {
